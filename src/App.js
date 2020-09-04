@@ -1,16 +1,18 @@
 import React from "react";
 import "./App.css";
-import HomePage from "./Components/HomePage";
+import NavBar from "./Components/NavBar";
 import SearchPage from "./Components/SearchPage";
 import RandomPage from "./Components/RandomPage";
+import HomePage from "./Components/HomePage";
 
 function App() {
   return (
-    <div>
+    <>
+      <NavBar />
       <HomePage />
       <SearchPage />
       <RandomPage />
-    </div>
+    </>
   );
 }
 

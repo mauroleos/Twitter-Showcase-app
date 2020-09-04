@@ -2,36 +2,39 @@ import React from "react";
 
 export default function HomePage() {
   return (
-    <nav className="navbar navbar-light bg-light navbar-expand-lg fixed-top">
-      <a href="/#" className="navbar-brand">
-        Twitter Showcase App
-      </a>
-      <button
-        className="navbar-toggler"
-        data-toggle="collapse"
-        data-target="#navbarCollapse"
-      >
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse" id="navbarCollapse">
-        <ul className="navbar-nav ml-auto">
-          <li className="navbar-item">
-            <a href="/#" className="nav-link">
-              Home
-            </a>
-          </li>
-          <li className="navbar-item">
-            <a href="/#" className="nav-link">
-              Search
-            </a>
-          </li>
-          <li className="navbar-item">
-            <a href="/#" className="nav-link">
-              Random
-            </a>
-          </li>
-        </ul>
+    <>
+      <div className="container" style={{ marginTop: 150, marginLeft: 200 }}>
+        <div className="card">
+          <div className="card-body">
+            <h3 className="card-title mb-0" style={{ textAlign: "center" }}>
+              Welcome to the Twitter Showcase App
+            </h3>
+          </div>
+        </div>
       </div>
-    </nav>
+
+      <div className="container" style={{ marginTop: 50, marginLeft: 200 }}>
+        <div className="card">
+          <div className="card-body">
+            <p className="card-title" style={{ textAlign: "center" }}>
+              Description text will go here
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        className="container"
+        style={{ marginTop: 50, marginLeft: 200, marginBottom: 10 }}
+      >
+        <div className="card">
+          <img
+            className="card-img-top"
+            alt="Card header image"
+            src="https://placeimg.com/640/480/nature"
+          ></img>
+        </div>
+      </div>
+    </>
   );
 }
