@@ -1,11 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
   return (
     <nav className="navbar navbar-light bg-light navbar-expand-lg fixed-top">
-      <a href="/#" className="navbar-brand">
-        Twitter Showcase App
-      </a>
+      <h3>Logo</h3>
       <button
         className="navbar-toggler"
         data-toggle="collapse"
@@ -15,21 +14,15 @@ export default function NavBar() {
       </button>
       <div className="collapse navbar-collapse" id="navbarCollapse">
         <ul className="navbar-nav ml-auto">
-          <li className="navbar-item">
-            <a href="/#" className="nav-link">
-              Home
-            </a>
-          </li>
-          <li className="navbar-item">
-            <a href="/#" className="nav-link">
-              Search
-            </a>
-          </li>
-          <li className="navbar-item">
-            <a href="/#" className="nav-link">
-              Random
-            </a>
-          </li>
+          <Link to="/">
+            <li className="navbar-item">Home</li>
+          </Link>
+          <Link to="/SearchPage">
+            <li className="navbar-item">Search</li>
+          </Link>
+          <Link to="RandomPage">
+            <li className="navbar-item">Random</li>
+          </Link>
         </ul>
       </div>
     </nav>

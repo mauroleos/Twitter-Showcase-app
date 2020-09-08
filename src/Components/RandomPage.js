@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function RandomPage() {
-  return <div>Test 3</div>;
+  return <h3 style={{ marginTop: 200 }}>Random Page</h3>;
 }
