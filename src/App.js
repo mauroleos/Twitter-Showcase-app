@@ -5,7 +5,7 @@ import SearchPage from "./Components/SearchPage";
 import RandomPage from "./Components/RandomPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-function App() {
+const App = () => {
   return (
     <Router>
       <div>
@@ -18,7 +18,7 @@ function App() {
       </div>
     </Router>
   );
-}
+};
 
 const Home = () => {
   return (
