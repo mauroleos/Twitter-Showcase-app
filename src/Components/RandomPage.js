@@ -4,7 +4,7 @@ const RandomPage = () => {
   return (
     <div>
       <div className="row">
-        <div className="col-sm-6">
+        <div className="col-sm-4">
           <div>
             <div
               className="container"
@@ -28,7 +28,7 @@ const RandomPage = () => {
           </div>
         </div>
 
-        <div className="col-sm-6">
+        <div className="col-sm-4">
           <div>
             <div
               className="container"
@@ -52,7 +52,7 @@ const RandomPage = () => {
           </div>
         </div>
 
-        <div className="col-sm-6">
+        <div className="col-sm-4">
           <div>
             <div
               className="container"
@@ -76,7 +76,7 @@ const RandomPage = () => {
           </div>
         </div>
 
-        <div className="col-sm-6">
+        <div className="col-sm-4">
           <div>
             <div
               className="container"
@@ -100,7 +100,7 @@ const RandomPage = () => {
           </div>
         </div>
 
-        <div className="col-sm-6">
+        <div className="col-sm-4">
           <div>
             <div
               className="container"
