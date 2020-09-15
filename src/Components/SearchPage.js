@@ -20,7 +20,7 @@ const SearchPage = () => {
           </div>
         </div>
 
-        <div class="row">
+        <div className="row">
           <div className="col-sm-6 offset-sm-3">
             <Button type="submit">Search</Button>
           </div>
