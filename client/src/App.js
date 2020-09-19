@@ -27,7 +27,7 @@ const Home = () => {
         <div className="card">
           <div className="card-body">
             <h3 className="card-title mb-0" style={{ textAlign: "center" }}>
-              Welcome to the Twitter Showcase App
+              Welcome to the Twitter Showcase App!
             </h3>
           </div>
         </div>
