@@ -3,14 +3,14 @@ const app = express();
 const path = require("path");
 const port = 3000;
 
-app.use("/static", express.static(path.join(__dirname, "client/build")));
+app.use(express.static(path.join(__dirname, "client/build")));
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname + "/client/build/index.html"));
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
 
-app.listen(port);
+app.get("/api/statuses", function (req, res) {
+  res.send(statuses);
+});
 
-// app.listen(port, () => {
-//   console.log(`Example app listening at http://localhost:${port}`);
-// });
+app.listen(port, () => console.log(`server started on port ${port}`));
