@@ -1,7 +1,9 @@
 const express = require("express");
-const fetch = require("node-fetch");
+var request = require("request");
+// const fetch = require("node-fetch");
 const app = express();
 const path = require("path");
+const axios = require("axios");
 let port = process.env.PORT || 3000;
 
 // const access_token = "AAAAAAAAAAAAAAAAAAAAAJBgHgEAAAAAiyoNTAGGwbth1jMT05cOnJXFv6Y%3DGGW96OfGERoOvSQ1TyRIam79asCJQPC8352nuayWhwWL5bOHUE"
@@ -13,17 +15,18 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/statuses", function (req, res) {
-  const fakeTweets = [
-    { text: "some tweet:", username: "elonmusk" },
-    { text: "another tweet:", username: "elonmusk" },
-  ];
-  res.send(fakeTweets);
-});
+  axios
+    .get("https://api.twitter.com/1.1/search/tweets.json")
 
-fetch("/api/statuses")
-  .then((resp) => resp.json()) // Transform the data into json
-  .then(function (data) {
-    console.log(data);
-  });
+    .then(function (response) {
+      // handle success
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    });
+  res.send(" ");
+});
 
 app.listen(port, () => console.log(`server started on port ${port}`));

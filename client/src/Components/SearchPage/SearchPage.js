@@ -1,8 +1,18 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
+// import e from "express";
 
 const SearchPage = () => {
   const [name, setName] = useState("");
+
+  function searchTweets() {
+    event.preventDefault();
+    fetch("/api/statuses")
+      .then((resp) => resp.json()) // Transform the data into json
+      .then(function (data) {
+        console.log(data);
+      });
+  }
 
   return (
     <div className="container" style={{ marginTop: 100 }}>
@@ -22,7 +32,9 @@ const SearchPage = () => {
 
         <div className="row">
           <div className="col-sm-6 offset-sm-3">
-            <Button type="submit">Search</Button>
+            <Button type="submit" onClick={searchTweets}>
+              Search
+            </Button>
           </div>
         </div>
       </form>
@@ -30,4 +42,5 @@ const SearchPage = () => {
     </div>
   );
 };
+
 export default SearchPage;
