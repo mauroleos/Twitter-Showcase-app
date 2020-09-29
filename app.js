@@ -16,8 +16,6 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/statuses", function (req, res) {
-  const searchQuery = req.query;
-  // console.log(searchQuery);
   const config = {
     headers: {
       Authorization: `Bearer ${access_token}`,
@@ -25,14 +23,17 @@ app.get("/api/statuses", function (req, res) {
   };
   axios
     .get(
-      `https://api.twitter.com/1.1/search/tweets.json?q=${searchQuery}`,
+      `https://api.twitter.com/1.1/search/tweets.json?q=${req.query.search_term}`,
       config
     )
-    .then((response) => res.send(response.data));
-  console.log(response.data).catch((error) => res.sendStatus(500));
+    .then((response) => {
+      res.send(response.data);
+      // console.log(response.data);
+    })
+    .catch(() => res.sendStatus(500));
 });
 
-app.get("/api/statuses/users", function (req, res) {
+app.get("/api/users", function (req, res) {
   const config = {
     headers: {
       Authorization: `Bearer ${access_token}`,
@@ -40,11 +41,14 @@ app.get("/api/statuses/users", function (req, res) {
   };
   axios
     .get(
-      "https://api.twitter.com/1.1/users/show.json?screen_name=elonmusk",
+      `https://api.twitter.com/1.1/users/show.json?q=${req.query.search_term}`,
       config
     )
-    .then((response) => res.send(response.data))
-    .catch((error) => res.sendStatus(500));
+    .then((response) => {
+      res.send(response.data);
+      // console.log(response.data);
+    })
+    .catch(() => res.sendStatus(500));
 });
 
 app.get("/api/statuses/random", function (req, res) {
