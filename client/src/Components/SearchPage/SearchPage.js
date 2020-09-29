@@ -63,7 +63,7 @@ const SearchPage = () => {
             </Button>
           </div>
         </div>
-        <div>{setTweets.tweets}</div>
+        <div>{/* <h1>Testing {tweets.tweets.statuses[0].text}</h1> */}</div>
       </form>
     </div>
     // </Container>
