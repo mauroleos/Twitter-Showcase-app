@@ -16,15 +16,20 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/statuses", function (req, res) {
+  const searchQuery = req.query;
+  // console.log(searchQuery);
   const config = {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
   };
   axios
-    .get("https://api.twitter.com/1.1/search/tweets.json?q=nasa", config)
-    .then((response) => res.send(response.data))
-    .catch((error) => res.sendStatus(500));
+    .get(
+      `https://api.twitter.com/1.1/search/tweets.json?q=${searchQuery}`,
+      config
+    )
+    .then((response) => res.send(response.data));
+  console.log(response.data).catch((error) => res.sendStatus(500));
 });
 
 app.get("/api/statuses/users", function (req, res) {
