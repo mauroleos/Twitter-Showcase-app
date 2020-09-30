@@ -7,17 +7,13 @@ import { Card, Image } from "react-bootstrap";
 const SearchPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const [tweets, setTweets] = useState({});
+  const [tweets, setTweets] = useState(null);
 
   function searchTweets(event) {
     event.preventDefault();
     fetch(`/api/statuses?search_term=${searchTerm}`)
       .then((resp) => resp.json()) // Transform the data into json
-      .then((data) => {
-        setTweets({
-          tweets: data,
-        });
-      });
+      .then((data) => setTweets(data));
     console.log(tweets);
   }
 
@@ -63,7 +59,22 @@ const SearchPage = () => {
             </Button>
           </div>
         </div>
-        <div>{/* <h1>Testing {tweets.tweets.statuses[0].text}</h1> */}</div>
+
+        <div className="tweets">
+          {tweets &&
+            tweets.map((tweet, index) => {
+              return (
+                <div className="tweet" key={index}>
+                  <h3>Tweet Date</h3>
+                  <h2>User Handle</h2>
+
+                  <div className="details">
+                    <p>{tweet.text}</p>
+                  </div>
+                </div>
+              );
+            })}
+        </div>
       </form>
     </div>
     // </Container>
