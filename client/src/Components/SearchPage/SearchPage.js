@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { Card, Image } from "react-bootstrap";
+import moment from "moment";
 
 // import e from "express";
 
@@ -64,10 +65,12 @@ const SearchPage = () => {
           {tweets.map((tweet, index) => {
             return (
               <div className="tweet" key={index}>
-                {/* <img src="fetch_dm_image?url="> */}
+                <Image className src={tweet.user.profile_image_url} />
                 <h2>{tweet.user.default_profile_image}</h2>
                 <h2>{tweet.user.screen_name}</h2>
-                <h2>{tweet.created_at}</h2>
+                <p className="d-inline ml-2 user-handle">
+                  {moment(tweet.created_at).format("MMM DD").toString()}
+                </p>
 
                 <div className="details">
                   <p>{tweet.text}</p>
