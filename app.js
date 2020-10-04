@@ -23,7 +23,7 @@ app.get("/api/statuses", function (req, res) {
   };
   axios
     .get(
-      `https://api.twitter.com/1.1/search/tweets.json?q=${req.query.search_term}`,
+      `https://api.twitter.com/1.1/search/tweets.json?q=${req.query.search_term}&tweet_mode=extended`,
       config
     )
     .then((response) => {

@@ -65,7 +65,10 @@ const SearchPage = () => {
           {tweets.map((tweet, index) => {
             return (
               <div className="tweet" key={index}>
-                <Image className src={tweet.user.profile_image_url} />
+                <Image
+                  className="d-inline mt-2 mr-1 ml-1"
+                  src={tweet.user.profile_image_url}
+                />
                 <h2>{tweet.user.default_profile_image}</h2>
                 <h2>{tweet.user.screen_name}</h2>
                 <p className="d-inline ml-2 user-handle">
@@ -73,7 +76,7 @@ const SearchPage = () => {
                 </p>
 
                 <div className="details">
-                  <p>{tweet.text}</p>
+                  <p>{tweet.full_text}</p>
                 </div>
               </div>
             );
