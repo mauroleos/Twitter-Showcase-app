@@ -10,26 +10,27 @@ const SearchPage = () => {
 
   const [tweets, setTweets] = useState([]);
 
+  const [users, setUsers] = useState([]);
+
   function searchTweets(event) {
     event.preventDefault();
     fetch(`/api/statuses?search_term=${searchTerm}`)
       .then((resp) => resp.json()) // Transform the data into json
       .then((data) => setTweets(data.statuses));
-    console.log(tweets);
+    // console.log(tweets);
   }
 
   function searchUsers(event) {
     event.preventDefault();
     fetch(`/api/users?search_term=${searchTerm}`)
       .then((resp) => resp.json()) // Transform the data into json
-      .then((data) => console.log(data));
+      .then((data) => setUsers(data));
+    console.log(users);
   }
 
   const handleChange = (e) => setSearchTerm(e.target.value);
-  // const handleChange = (e) => setTweets(e.target.value);
 
   return (
-    // <Container>
     <div className="container" style={{ marginTop: 100 }}>
       <form>
         <div className="form-group row">
@@ -55,7 +56,7 @@ const SearchPage = () => {
               Search By Content
             </Button>
 
-            <Button type="submit" onClick={searchUsers}>
+            <Button type="submit" onClick={(event) => searchUsers(event)}>
               Search By User
             </Button>
           </div>
@@ -82,9 +83,30 @@ const SearchPage = () => {
             );
           })}
         </div>
+
+        <div className="users">
+          {users.map((user, index) => {
+            return (
+              <div className="user" key={index}>
+                <Image
+                  className="d-inline mt-2 mr-1 ml-1"
+                  // src={user.profile_image_url}
+                />
+                {/* <h2>{user.default_profile_image}</h2> */}
+                <h2>{user.name}</h2>
+                <p className="d-inline ml-2 user-handle">
+                  {/* {moment(user.created_at).format("MMM DD").toString()} */}
+                </p>
+
+                <div className="details">
+                  <p>{user.status.full_text}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </form>
     </div>
-    // </Container>
   );
 };
 
