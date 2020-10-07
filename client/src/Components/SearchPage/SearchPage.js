@@ -17,10 +17,10 @@ const SearchPage = () => {
     fetch(`/api/statuses?search_term=${searchTerm}`)
       .then((resp) => resp.json()) // Transform the data into json
       .then((data) => setTweets(data.statuses));
-    // console.log(tweets);
+    console.log(tweets);
   }
 
-  function searchUsers(event) {
+  async function searchUsers(event) {
     event.preventDefault();
     fetch(`/api/users?search_term=${searchTerm}`)
       .then((resp) => resp.json()) // Transform the data into json
@@ -90,12 +90,12 @@ const SearchPage = () => {
               <div className="user" key={index}>
                 <Image
                   className="d-inline mt-2 mr-1 ml-1"
-                  // src={user.profile_image_url}
+                  src={user.profile_image_url}
                 />
-                {/* <h2>{user.default_profile_image}</h2> */}
+                <h2>{user.default_profile_image}</h2>
                 <h2>{user.name}</h2>
                 <p className="d-inline ml-2 user-handle">
-                  {/* {moment(user.created_at).format("MMM DD").toString()} */}
+                  {moment(user.created_at).format("MMM DD").toString()}
                 </p>
 
                 <div className="details">

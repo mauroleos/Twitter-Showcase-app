@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
 
-app.get("/api/statuses", function (req, res) {
+app.get("/api/statuses", (req, res) => {
   const config = {
     headers: {
       Authorization: `Bearer ${access_token}`,
@@ -33,10 +33,10 @@ app.get("/api/statuses", function (req, res) {
     .catch(() => res.sendStatus(500));
 });
 
-app.get("/api/users", function (req, res) {
+app.get("/api/users", async (req, res) => {
   const config = {
     headers: {
-      Authorization: `Bearer ${access_token}`,
+      Authorization: `Bearer ${await access_token}`,
     },
   };
   axios
