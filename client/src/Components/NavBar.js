@@ -1,10 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 const NavBar = () => {
   return (
     <nav className="navbar navbar-light bg-light navbar-expand-lg fixed-top">
-      <h3>Logo</h3>
+      <h3>
+        <FontAwesomeIcon color="#33ccff" size="2x" mg- icon={faTwitter} />
+      </h3>
       <button
         className="navbar-toggler"
         data-toggle="collapse"

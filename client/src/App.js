@@ -51,7 +51,8 @@ const Home = () => {
           <img
             className="card-img-top"
             alt="Card header"
-            src="https://placeimg.com/640/480/nature"
+            src="Images/Twitter-phone.png"
+            alt="image"
           ></img>
         </div>
       </div>
