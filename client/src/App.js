@@ -4,6 +4,7 @@ import NavBar from "./Components/NavBar";
 import SearchPage from "./Components/SearchPage/SearchPage";
 import RandomPage from "./Components/RandomPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Logo from "./Images/Twitter-phone.png";
 
 const App = () => {
   return (
@@ -51,8 +52,10 @@ const Home = () => {
           <img
             className="card-img-top"
             alt="Card header"
-            src="Images/Twitter-phone.png"
-            alt="image"
+            src={Logo}
+            // height="1000"
+            // width="100"
+            alt="Twitter image"
           ></img>
         </div>
       </div>

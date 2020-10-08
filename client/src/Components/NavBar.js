@@ -7,7 +7,7 @@ const NavBar = () => {
   return (
     <nav className="navbar navbar-light bg-light navbar-expand-lg fixed-top">
       <h3>
-        <FontAwesomeIcon color="#33ccff" size="2x" mg- icon={faTwitter} />
+        <FontAwesomeIcon color="#33ccff" size="2x" icon={faTwitter} />
       </h3>
       <button
         className="navbar-toggler"
