@@ -1,6 +1,19 @@
 import React from "react";
 
 const RandomPage = () => {
+  const [users, setUsers] = useState([]);
+
+  async function searchUsers(event) {
+    event.preventDefault();
+
+    const elonMuskData = await fetch(
+      `/api/users?search_term=elonmusk`
+    ).then((resp) => resp.json());
+
+    setUsers(elonMuskData);
+  }
+  console.log(users);
+
   return (
     <div>
       <div className="row">
