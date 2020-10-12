@@ -28,7 +28,6 @@ app.get("/api/statuses", (req, res) => {
     )
     .then((response) => {
       res.send(response.data);
-      // console.log(response.data);
     })
     .catch(() => res.sendStatus(500));
 });
@@ -36,33 +35,60 @@ app.get("/api/statuses", (req, res) => {
 app.get("/api/users", async (req, res) => {
   const config = {
     headers: {
-      Authorization: `Bearer ${await access_token}`,
+      Authorization: `Bearer ${access_token}`,
     },
   };
   axios
     .get(
-      `https://api.twitter.com/1.1/users/show.json?screen_name=${req.query.search_term}&tweet_mode=extended`,
+      `https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=${req.query.search_term}&tweet_mode=extended`,
       config
     )
     .then((response) => {
       res.send(response.data);
-      // console.log(response.data);
     })
     .catch(() => res.sendStatus(500));
 });
 
-// app.get("/api/statuses/random", function (req, res) {
-//   const config = {
-//     headers: {
-//       Authorization: `Bearer ${access_token}`,
-//     },
-//   };
-//   axios
-//     .get(
-//       "https://api.twitter.com/1.1/users/show.json?screen_name=elonmusk, https://api.twitter.com/1.1/users/show.json?screen_name=BillGates, https://api.twitter.com/1.1/users/show.json?screen_name=JeffBezos, https://api.twitter.com/1.1/users/show.json?screen_name=KingJames, https://api.twitter.com/1.1/users/show.json?screen_name=Drake"
-//     )
-//     .then((response) => res.send(response.data))
-//     .catch((error) => res.sendStatus(500));
-// });
+app.get("/api/statuses/random", function (req, res) {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${access_token}`,
+    },
+  };
+  axios
+    .get(
+      "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=elonmusk&tweet_mode=extended"
+    )
+    .then((response) => res.send(response.data))
+    .catch((error) => res.sendStatus(500));
+
+  axios
+    .get(
+      "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=BillGates&tweet_mode=extended"
+    )
+    .then((response) => res.send(response.data))
+    .catch((error) => res.sendStatus(500));
+
+  axios
+    .get(
+      "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=JeffBezos&tweet_mode=extended"
+    )
+    .then((response) => res.send(response.data))
+    .catch((error) => res.sendStatus(500));
+
+  axios
+    .get(
+      "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=KingJames&tweet_mode=extended"
+    )
+    .then((response) => res.send(response.data))
+    .catch((error) => res.sendStatus(500));
+
+  axios
+    .get(
+      "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=kanyewest&tweet_mode=extended"
+    )
+    .then((response) => res.send(response.data))
+    .catch((error) => res.sendStatus(500));
+});
 
 app.listen(port, () => console.log(`server started on port ${port}`));

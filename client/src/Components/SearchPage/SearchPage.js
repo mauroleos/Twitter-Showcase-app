@@ -3,8 +3,6 @@ import { Button } from "react-bootstrap";
 import { Card, Image } from "react-bootstrap";
 import moment from "moment";
 
-// import e from "express";
-
 const SearchPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -12,21 +10,26 @@ const SearchPage = () => {
 
   const [users, setUsers] = useState([]);
 
-  function searchTweets(event) {
+  async function searchTweets(event) {
     event.preventDefault();
-    fetch(`/api/statuses?search_term=${searchTerm}`)
-      .then((resp) => resp.json()) // Transform the data into json
-      .then((data) => setTweets(data.statuses));
-    console.log(tweets);
+
+    const data = await fetch(
+      `/api/statuses?search_term=${searchTerm}`
+    ).then((resp) => resp.json());
+
+    setTweets(data.statuses);
   }
 
   async function searchUsers(event) {
     event.preventDefault();
-    fetch(`/api/users?search_term=${searchTerm}`)
-      .then((resp) => resp.json()) // Transform the data into json
-      .then((data) => setUsers(data));
-    console.log(users);
+
+    const data = await fetch(
+      `/api/users?search_term=${searchTerm}`
+    ).then((resp) => resp.json());
+
+    setUsers(data);
   }
+  console.log(users);
 
   const handleChange = (e) => setSearchTerm(e.target.value);
 
@@ -90,16 +93,16 @@ const SearchPage = () => {
               <div className="user" key={index}>
                 <Image
                   className="d-inline mt-2 mr-1 ml-1"
-                  src={user.profile_image_url}
+                  src={user.user.profile_image_url}
                 />
-                <h2>{user.default_profile_image}</h2>
-                <h2>{user.name}</h2>
+                <h2>{user.user.default_profile_image}</h2>
+                <h2>{user.user.name}</h2>
                 <p className="d-inline ml-2 user-handle">
                   {moment(user.created_at).format("MMM DD").toString()}
                 </p>
 
                 <div className="details">
-                  <p>{user.status.full_text}</p>
+                  <p>{user.full_text}</p>
                 </div>
               </div>
             );
