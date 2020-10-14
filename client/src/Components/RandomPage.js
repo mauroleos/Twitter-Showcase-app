@@ -6,6 +6,7 @@ import { Button } from "react-bootstrap";
 const RandomPage = () => {
   const [elonMusk, setUsersE] = useState([]);
   const [billGates, setUsersB] = useState([]);
+  const [jeffBezos, setUsersJ] = useState([]);
 
   async function searchUsersE(event) {
     event.preventDefault();
@@ -16,7 +17,6 @@ const RandomPage = () => {
 
     setUsersE(elonMuskData);
   }
-  // console.log(users);
 
   async function searchUsersB(event) {
     event.preventDefault();
@@ -25,10 +25,18 @@ const RandomPage = () => {
       `/api/users?search_term=BillGates`
     ).then((resp) => resp.json());
 
-    // setUsersE(elonMuskData);
     setUsersB(billGatesData);
   }
-  // console.log(users);
+
+  async function searchUsersJ(event) {
+    event.preventDefault();
+
+    const jeffBezosData = await fetch(
+      `/api/users?search_term=JeffBezos`
+    ).then((resp) => resp.json());
+
+    setUsersJ(jeffBezosData);
+  }
 
   return (
     <div>
@@ -100,11 +108,14 @@ const RandomPage = () => {
                   src="https://placeimg.com/640/480/nature"
                 />
                 <div className="card-body">
-                  <h5 className="card-title">Card Title</h5>
-                  <p className="card-text">Testing</p>
-                  <a href="#" className="btn btn-primary">
+                  <h5 className="card-title">Jeff Bezos</h5>
+                  <p className="card-text">CEO of Amazon</p>
+                  <Button
+                    type="submit"
+                    onClick={(event) => searchUsersJ(event)}
+                  >
                     Tweet
-                  </a>
+                  </Button>
                 </div>
               </div>
             </div>
@@ -185,6 +196,28 @@ const RandomPage = () => {
           {billGates.map((user, index) => {
             return (
               <div className="billGates" key={index}>
+                <Image
+                  className="d-inline mt-2 mr-1 ml-1"
+                  src={user.user.profile_image_url}
+                />
+                <h2>{user.user.default_profile_image}</h2>
+                <h2>{user.user.name}</h2>
+                <p className="d-inline ml-2 user-handle">
+                  {moment(user.created_at).format("MMM DD").toString()}
+                </p>
+
+                <div className="details">
+                  <p>{user.full_text}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="jeffBezos">
+          {jeffBezos.map((user, index) => {
+            return (
+              <div className="jeffBezos" key={index}>
                 <Image
                   className="d-inline mt-2 mr-1 ml-1"
                   src={user.user.profile_image_url}
