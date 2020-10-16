@@ -49,18 +49,28 @@ app.get("/api/users", async (req, res) => {
     .catch(() => res.sendStatus(500));
 });
 
-app.get("/api/statuses/random", function (req, res) {
+app.get("/api/statuses/random", async (req, res) => {
   const config = {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
   };
-  axios
-    .get(
-      "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=elonmusk&tweet_mode=extended"
-    )
-    .then((response) => res.send(response.data))
-    .catch((error) => res.sendStatus(500));
+
+  const data = {
+    elon: null,
+    bill: null,
+    jeff: null,
+    lebron: null,
+    kanye: null,
+  };
+  const response = await axios.get(
+    `https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=elonmusk&tweet_mode=extended`,
+    config
+  );
+
+  data.elon = response.data.statuses[Math.floor(Math.random() * 19)];
+
+  res.send(data);
 
   axios
     .get(
