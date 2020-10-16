@@ -46,6 +46,16 @@ const RandomPage = () => {
     setUsers(lebronJamesData);
   }
 
+  async function searchUsersK(event) {
+    event.preventDefault();
+
+    const kanyeWestData = await fetch(
+      `/api/users?search_term=kanyewest`
+    ).then((resp) => resp.json());
+
+    setUsers(kanyeWestData);
+  }
+
   return (
     <div>
       <div className="row">
@@ -170,21 +180,24 @@ const RandomPage = () => {
                   src="https://placeimg.com/640/480/nature"
                 />
                 <div className="card-body">
-                  <h5 className="card-title">Card Title</h5>
-                  <p className="card-text">Testing</p>
-                  <a href="#" className="btn btn-primary">
+                  <h5 className="card-title">Kanye West</h5>
+                  <p className="card-text">Candidate for US President</p>
+                  <Button
+                    type="submit"
+                    onClick={(event) => searchUsersK(event)}
+                  >
                     Tweet
-                  </a>
+                  </Button>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="elonMusk">
+        <div className="user">
           {user.map((user, index) => {
             return (
-              <div className="elonMusk" key={index}>
+              <div className="user" key={index}>
                 <Image
                   className="d-inline mt-2 mr-1 ml-1"
                   src={user.user.profile_image_url}

@@ -17,6 +17,7 @@ const SearchPage = () => {
       `/api/statuses?search_term=${searchTerm}`
     ).then((resp) => resp.json());
 
+    setUsers([]);
     setTweets(data.statuses);
   }
 
@@ -27,6 +28,7 @@ const SearchPage = () => {
       `/api/users?search_term=${searchTerm}`
     ).then((resp) => resp.json());
 
+    setTweets([]);
     setUsers(data);
   }
   console.log(users);

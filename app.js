@@ -63,42 +63,42 @@ app.get("/api/statuses/random", async (req, res) => {
     lebron: null,
     kanye: null,
   };
-  const response = await axios.get(
+  const responseElon = await axios.get(
     `https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=elonmusk&tweet_mode=extended`,
     config
   );
 
-  data.elon = response.data.statuses[Math.floor(Math.random() * 19)];
+  data.elon = responseElon.data.statuses[Math.floor(Math.random() * 19)];
+
+  const responseBill = await axios.get(
+    `https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=BillGates&tweet_mode=extended`,
+    config
+  );
+
+  data.bill = responseBill.data.statuses[Math.floor(Math.random() * 19)];
+
+  const responseJeff = await axios.get(
+    `https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=JeffBezos&tweet_mode=extended`,
+    config
+  );
+
+  data.jeff = responseJeff.data.statuses[Math.floor(Math.random() * 19)];
+
+  const responseKing = await axios.get(
+    `https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=KingJames&tweet_mode=extended`,
+    config
+  );
+
+  data.lebron = responseKing.data.statuses[Math.floor(Math.random() * 19)];
+
+  const responseKanye = await axios.get(
+    `https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=kanyewest&tweet_mode=extended`,
+    config
+  );
+
+  data.kanye = responseKanye.data.statuses[Math.floor(Math.random() * 19)];
 
   res.send(data);
-
-  axios
-    .get(
-      "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=BillGates&tweet_mode=extended"
-    )
-    .then((response) => res.send(response.data))
-    .catch((error) => res.sendStatus(500));
-
-  axios
-    .get(
-      "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=JeffBezos&tweet_mode=extended"
-    )
-    .then((response) => res.send(response.data))
-    .catch((error) => res.sendStatus(500));
-
-  axios
-    .get(
-      "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=KingJames&tweet_mode=extended"
-    )
-    .then((response) => res.send(response.data))
-    .catch((error) => res.sendStatus(500));
-
-  axios
-    .get(
-      "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=kanyewest&tweet_mode=extended"
-    )
-    .then((response) => res.send(response.data))
-    .catch((error) => res.sendStatus(500));
 });
 
 app.listen(port, () => console.log(`server started on port ${port}`));
