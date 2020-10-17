@@ -193,27 +193,28 @@ const RandomPage = () => {
             </div>
           </div>
         </div>
+        <div className="container" style={{ marginTop: 100 }}>
+          <div className="user">
+            {user.map((user, index) => {
+              return (
+                <div className="user" key={index}>
+                  <Image
+                    className="d-inline mt-2 mr-1 ml-1"
+                    src={user.user.profile_image_url}
+                  />
+                  <h2>{user.user.default_profile_image}</h2>
+                  <h2>{user.user.name}</h2>
+                  <p className="d-inline ml-2 user-handle">
+                    {moment(user.created_at).format("MMM DD").toString()}
+                  </p>
 
-        <div className="user">
-          {user.map((user, index) => {
-            return (
-              <div className="user" key={index}>
-                <Image
-                  className="d-inline mt-2 mr-1 ml-1"
-                  src={user.user.profile_image_url}
-                />
-                <h2>{user.user.default_profile_image}</h2>
-                <h2>{user.user.name}</h2>
-                <p className="d-inline ml-2 user-handle">
-                  {moment(user.created_at).format("MMM DD").toString()}
-                </p>
-
-                <div className="details">
-                  <p>{user.full_text}</p>
+                  <div className="details">
+                    <p>{user.full_text}</p>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
