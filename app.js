@@ -1,6 +1,4 @@
 const express = require("express");
-var request = require("request");
-// const fetch = require("node-fetch");
 const app = express();
 const path = require("path");
 const axios = require("axios");
@@ -68,35 +66,37 @@ app.get("/api/statuses/random", async (req, res) => {
     config
   );
 
-  data.elon = responseElon.data.statuses[Math.floor(Math.random() * 19)];
+  console.log(responseElon.data);
+  data.elon =
+    responseElon.data[Math.floor(Math.random() * responseElon.data.length)];
 
   const responseBill = await axios.get(
     `https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=BillGates&tweet_mode=extended`,
     config
   );
 
-  data.bill = responseBill.data.statuses[Math.floor(Math.random() * 19)];
+  data.bill = responseBill.data[Math.floor(Math.random() * 19)];
 
   const responseJeff = await axios.get(
     `https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=JeffBezos&tweet_mode=extended`,
     config
   );
 
-  data.jeff = responseJeff.data.statuses[Math.floor(Math.random() * 19)];
+  data.jeff = responseJeff.data[Math.floor(Math.random() * 19)];
 
   const responseKing = await axios.get(
     `https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=KingJames&tweet_mode=extended`,
     config
   );
 
-  data.lebron = responseKing.data.statuses[Math.floor(Math.random() * 19)];
+  data.lebron = responseKing.data[Math.floor(Math.random() * 19)];
 
   const responseKanye = await axios.get(
     `https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=kanyewest&tweet_mode=extended`,
     config
   );
 
-  data.kanye = responseKanye.data.statuses[Math.floor(Math.random() * 19)];
+  data.kanye = responseKanye.data[Math.floor(Math.random() * 19)];
 
   res.send(data);
 });

@@ -53,8 +53,6 @@ const Home = () => {
             className="card-img-top"
             alt="Card header"
             src={Logo}
-            // height="1000"
-            // width="100"
             alt="Twitter image"
           ></img>
         </div>
