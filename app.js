@@ -9,10 +9,6 @@ const access_token =
 
 app.use(express.static(path.join(__dirname, "client/build")));
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "client/build", "index.html"));
-});
-
 app.get("/api/statuses", (req, res) => {
   const config = {
     headers: {
@@ -99,6 +95,10 @@ app.get("/api/statuses/random", async (req, res) => {
   data.kanye = responseKanye.data[Math.floor(Math.random() * 19)];
 
   res.send(data);
+});
+
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
 
 app.listen(port, () => console.log(`server started on port ${port}`));
