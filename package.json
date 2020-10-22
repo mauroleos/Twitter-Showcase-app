@@ -4,7 +4,6 @@
   "description": "Twitter App",
   "main": "app.js",
   "scripts": {
-    "heroku-prebuild": "npm install && npm i --prefix client && npm run build --prefix client",
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "npm run watch --prefix client",
     "dev": "concurrently \"nodemon app.js\" \"npm run client\""

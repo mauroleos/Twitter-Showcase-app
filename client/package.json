@@ -19,6 +19,7 @@
     "react-scripts": "3.4.3"
   },
   "scripts": {
+    "heroku-prebuild": "npm install && npm i --prefix client && npm run build --prefix client",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
