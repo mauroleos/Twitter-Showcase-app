@@ -97,8 +97,8 @@ app.get("/api/statuses/random", async (req, res) => {
   res.send(data);
 });
 
-// app.get("/*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "client/build", "index.html"));
-// });
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+});
 
 app.listen(port, () => console.log(`server started on port ${port}`));
