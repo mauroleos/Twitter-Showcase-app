@@ -27,7 +27,14 @@ const Home = () => {
       <div className="container" style={{ marginTop: 150, marginLeft: 200 }}>
         <div className="card">
           <div className="card-body">
-            <h3 className="card-title mb-0" style={{ textAlign: "center" }}>
+            <h3
+              className="card-title mb-0"
+              style={{
+                textAlign: "center",
+                fontWeight: "bold",
+                color: "#33ccff",
+              }}
+            >
               Welcome to the Twitter Showcase App!
             </h3>
           </div>
@@ -37,8 +44,49 @@ const Home = () => {
       <div className="container" style={{ marginTop: 50, marginLeft: 200 }}>
         <div className="card">
           <div className="card-body">
-            <p className="card-title" style={{ textAlign: "center" }}>
-              Description text will go here
+            <h3
+              className="card-title"
+              style={{
+                textAlign: "center",
+                color: "#33ccff",
+                fontWeight: "bold",
+              }}
+            >
+              {" "}
+              Instructions:{" "}
+            </h3>
+            <p
+              style={{
+                textAlign: "center",
+                fontWeight: "bold",
+                marginTop: 30,
+                color: "#33ccff",
+                fontSize: 20,
+              }}
+            >
+              Search Page:
+            </p>
+            <p style={{ color: "darkBlue" }}>
+              Search tweets by category or by user! "Search By Content" will
+              display tweets in relation to what you typed in the search box.
+              "Search By User" will display tweets from the user you typed in
+              the search box.{" "}
+            </p>
+            <p
+              style={{
+                textAlign: "center",
+                fontWeight: "bold",
+                color: "#33ccff",
+                fontSize: 20,
+              }}
+            >
+              Random Page:
+            </p>
+            <p style={{ color: "darkBlue" }}>
+              Go check out some of my personal favorite Twitter accounts to
+              follow and get a random tweet back from any one of them! Simply
+              pick the user you want and click on the "Tweet" button. This will
+              return a random tweet from that user.{" "}
             </p>
           </div>
         </div>
