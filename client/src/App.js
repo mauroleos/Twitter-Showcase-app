@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import NavBar from "./Components/NavBar";
-import SearchPage from "./Components/SearchPage/SearchPage";
+import SearchPage from "./Components/SearchPage";
 import RandomPage from "./Components/RandomPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Logo from "./Images/Twitter-phone.png";
@@ -68,9 +68,9 @@ const Home = () => {
             </p>
             <p style={{ color: "darkBlue" }}>
               Search tweets by category or by user! "Search By Content" will
-              display tweets in relation to what you typed in the search box.
-              "Search By User" will display tweets from the user you typed in
-              the search box.{" "}
+              display the most recent tweets in relation to what you typed in
+              the search box. "Search By User" will display the most recent
+              tweets from the user you typed in the search box.{" "}
             </p>
             <p
               style={{

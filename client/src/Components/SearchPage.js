@@ -36,10 +36,9 @@ const SearchPage = () => {
   const handleChange = (e) => setSearchTerm(e.target.value);
 
   return (
-    <div className="container" style={{ marginTop: 100 }}>
+    <div className="container" style={{ marginTop: 200 }}>
       <form>
         <div className="form-group row">
-          {/* <label className="col-sm-3 col-form-label">Search By Username</label> */}
           <div className="col-sm-9">
             <input
               className="form-control"
