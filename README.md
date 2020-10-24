@@ -1,6 +1,6 @@
 # Twitter-Showcase-app
 
-This is a Twitter Showcase App written in HTML, CSS, Javascript, NodeJs, and uses React, Bootsrap, ExpressJs as an internal API, and Bootstrap/Reactstrap and is deployed with Heroku.
+This is a Twitter Showcase App written in HTML, CSS, Javascript, and NodeJs. It uses React, Bootstrap, ExpressJs as an internal API, and is deployed with Heroku.
 
 <strong>View application on <a href="https://twitter-showcase-app-ml.herokuapp.com/"><b>Heroku</b></a>.</strong>
 
