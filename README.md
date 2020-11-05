@@ -13,4 +13,4 @@ This is my first full-stack application. The purpose of this app was to help me 
 In order to create this app, I first had to create the basic site (HTML/CSS). Next, I had to serve my website using Node/Express. I also used NPM scripts to set up a DEV environment. Finally, I had to create an internal API and figure out how to grab data from an external API.
 
 # Author
-<strong>Mauro Leos</strong>-<i>Full-Stack Software Developer</i>-<a href="https://www.linkedin.com/in/mauro-leos-b4103a11b/">LinkedIn</a>
+<strong>Mauro Leos</strong> - <i>Full-Stack Software Developer</i> - <a href="https://www.linkedin.com/in/mauro-leos-b4103a11b/">LinkedIn </a> - <a href="https:/https://www.mauroleos.com//">Website</a>
