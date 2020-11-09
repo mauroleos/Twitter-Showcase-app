@@ -9,7 +9,7 @@ import Logo from "./Images/Twitter-phone.png";
 const App = () => {
   return (
     <Router>
-      <div>
+      <div className="container-fluid">
         <NavBar />
         <Switch>
           <Route path="/" exact component={Home} />
@@ -23,8 +23,8 @@ const App = () => {
 
 const Home = () => {
   return (
-    <div>
-      <div className="container" style={{ marginTop: 150, marginLeft: 200 }}>
+    <div className="container-fluid">
+      <div className="container" style={{ marginTop: 150 }}>
         <div className="card">
           <div className="card-body">
             <h3
@@ -41,7 +41,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="container" style={{ marginTop: 50, marginLeft: 200 }}>
+      <div className="container" style={{ marginTop: 50}}>
         <div className="card">
           <div className="card-body">
             <h3
@@ -94,7 +94,7 @@ const Home = () => {
 
       <div
         className="container"
-        style={{ marginTop: 50, marginLeft: 200, marginBottom: 10 }}
+        style={{ marginTop: 50 }}
       >
         <div className="card">
           <img
