@@ -7,58 +7,59 @@ import billLogo from "./Images/bill.png";
 import jeffLogo from "./Images/jeff.png";
 import lebronLogo from "./Images/lebron.png";
 import kanyeLogo from "./Images/kanye.png";
+import RandomUserCard from "./RandomUserCard"
 
 const RandomPage = () => {
-  const [user, setUsers] = useState([]);
+  const randomUsers = [
+    { 
+      name:"Elon Musk", 
+      title:"CEO of SpaceX", 
+      logo: elonLogo,
+      username: "elonmusk", 
+      getRandomTweet: getRandomTweet 
+  },
+    { 
+      name:"Bill Gates", 
+      title:"Business magnate", 
+      logo: billLogo, 
+      username: "BillGates", 
+      getRandomTweet: getRandomTweet 
+    },
+    { 
+      name:"Jeff Bezos", 
+      title:"CEO of Amazon", 
+      logo: jeffLogo, 
+      username: "JeffBezos", 
+      getRandomTweet: getRandomTweet 
+    },
+    { 
+      name:"LeBron James", 
+      title:" American basketball player", 
+      logo: lebronLogo, 
+      username: "KingJames", 
+      getRandomTweet: getRandomTweet 
+    },
+    { 
+      name:"Kanye West", 
+      title:" American rapper", 
+      logo: kanyeLogo, 
+      username: "kanyewest", 
+      getRandomTweet: getRandomTweet 
+    },
+  ];
 
-  async function searchUsersE(event) {
+  const [users, setUsers ] = useState(randomUsers);
+  const [user, setUser]  = useState([]);
+  
+
+  async function getRandomTweet(event, username) {
     event.preventDefault();
 
-    const data = await fetch(`/api/statuses/random`).then((resp) =>
+    const data = await fetch(`/api/statuses/random?username=${username}`).then((resp) =>
       resp.json()
     );
-
-    setUsers([data.elon]);
-  }
-
-  async function searchUsersB(event) {
-    event.preventDefault();
-
-    const data = await fetch(`/api/statuses/random`).then((resp) =>
-      resp.json()
-    );
-
-    setUsers([data.bill]);
-  }
-
-  async function searchUsersJ(event) {
-    event.preventDefault();
-
-    const data = await fetch(`/api/statuses/random`).then((resp) =>
-      resp.json()
-    );
-
-    setUsers([data.jeff]);
-  }
-
-  async function searchUsersL(event) {
-    event.preventDefault();
-
-    const data = await fetch(`/api/statuses/random`).then((resp) =>
-      resp.json()
-    );
-
-    setUsers([data.lebron]);
-  }
-
-  async function searchUsersK(event) {
-    event.preventDefault();
-
-    const data = await fetch(`/api/statuses/random`).then((resp) =>
-      resp.json()
-    );
-
-    setUsers([data.kanye]);
+    
+    setUser([data]);
   }
 
   return (
@@ -87,155 +88,19 @@ const RandomPage = () => {
             })}
           </div>
         </div>
-        <div className="col-sm-4">
-          <div>
-            <div
-              className="container"
-              style={{ marginTop: 100, width: "60%", height: "60%" }}
-            >
-              <div className="card">
-                <img
-                  className="card-img-top"
-                  alt="Card header"
-                  src={elonLogo}
-                  alt="logo"
-                  height="175"
-                  width="100"
-                ></img>
-                <div className="card-body">
-                  <h5 className="card-title">Elon Musk</h5>
-                  <p className="card-text">CEO of SpaceX</p>
-                  <Button
-                    type="submit"
-                    onClick={(event) => searchUsersE(event)}
-                  >
-                    Tweet
-                  </Button>
-                </div>
-              </div>
-            </div>
+        {users.map((user) => {
+          return (
+            <div className="col-sm-4">
+              <RandomUserCard 
+                name={user.name} 
+                title={user.title} 
+                logo={user.logo} 
+                username={user.username}
+                getRandomTweet={user.getRandomTweet }
+                />
           </div>
-        </div>
-
-        <div className="col-sm-4">
-          <div>
-            <div
-              className="container"
-              style={{ marginTop: 100, width: "60%", height: "60%" }}
-            >
-              <div className="card">
-                <img
-                  className="card-img-top"
-                  alt="Card header"
-                  src={billLogo}
-                  alt="logo"
-                  height="175"
-                  width="100"
-                ></img>
-                <div className="card-body">
-                  <h5 className="card-title">Bill Gates</h5>
-                  <p className="card-text">Business magnate</p>
-                  <Button
-                    type="submit"
-                    onClick={(event) => searchUsersB(event)}
-                  >
-                    Tweet
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-sm-4">
-          <div>
-            <div
-              className="container"
-              style={{ marginTop: 100, width: "60%", height: "60%" }}
-            >
-              <div className="card">
-                <img
-                  className="card-img-top"
-                  alt="Card header"
-                  src={jeffLogo}
-                  alt="logo"
-                  height="175"
-                  width="100"
-                ></img>
-                <div className="card-body">
-                  <h5 className="card-title">Jeff Bezos</h5>
-                  <p className="card-text">CEO of Amazon</p>
-                  <Button
-                    type="submit"
-                    onClick={(event) => searchUsersJ(event)}
-                  >
-                    Tweet
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-sm-4">
-          <div>
-            <div
-              className="container"
-              style={{ marginTop: 100, width: "60%", height: "60%" }}
-            >
-              <div className="card">
-                <img
-                  className="card-img-top"
-                  alt="Card header"
-                  src={lebronLogo}
-                  alt="logo"
-                  height="175"
-                  width="100"
-                ></img>
-                <div className="card-body">
-                  <h5 className="card-title">LeBron James</h5>
-                  <p className="card-text">American basketball player</p>
-                  <Button
-                    type="submit"
-                    onClick={(event) => searchUsersL(event)}
-                  >
-                    Tweet
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-sm-4">
-          <div>
-            <div
-              className="container"
-              style={{ marginTop: 100, width: "60%", height: "60%" }}
-            >
-              <div className="card">
-                <img
-                  className="card-img-top"
-                  alt="Card header"
-                  src={kanyeLogo}
-                  alt="logo"
-                  height="175"
-                  width="100"
-                ></img>
-                <div className="card-body">
-                  <h5 className="card-title">Kanye West</h5>
-                  <p className="card-text">Candidate for US President</p>
-                  <Button
-                    type="submit"
-                    onClick={(event) => searchUsersK(event)}
-                  >
-                    Tweet
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+          );
+        })}
       </div>
     </div>
   );
